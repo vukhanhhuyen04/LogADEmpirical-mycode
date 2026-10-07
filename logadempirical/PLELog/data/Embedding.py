@@ -98,7 +98,7 @@ def nlp_emb_mergeTemplateEmbeddings_HDFS(dir, templates, logger):
                 else:
                     items = line.strip().split()
                     if len(items) != embedSize + 1: continue
-                    template_word, template_embedding = items[0], np.asarray(items[1:], dtype=np.float)
+                    template_word, template_embedding = items[0], np.asarray(items[1:], dtype=float)
                     templateVocab[template_word] = template_embedding
                 line_num += 1
     else:
@@ -109,7 +109,7 @@ def nlp_emb_mergeTemplateEmbeddings_HDFS(dir, templates, logger):
                 line = line.strip()
                 tokens = line.split()
                 if len(tokens) == embedSize + 1:
-                    word, embed = tokens[0], np.asarray(tokens[1:], dtype=np.float)
+                    word, embed = tokens[0], np.asarray(tokens[1:], dtype=float)
                     wordVocab[word] = embed
         template_tokens = {}
         for template in set(templates):
@@ -200,7 +200,7 @@ def nlp_emb_mergeTemplateEmbeddings_BGL(dir, templates, dataset, logger):
                 else:
                     items = line.strip().split()
                     if len(items) != embedSize + 1: continue
-                    template_word, template_embedding = items[0], np.asarray(items[1:], dtype=np.float)
+                    template_word, template_embedding = items[0], np.asarray(items[1:], dtype=float)
                     templateVocab[template_word] = template_embedding
                 line_num += 1
     else:
@@ -211,7 +211,7 @@ def nlp_emb_mergeTemplateEmbeddings_BGL(dir, templates, dataset, logger):
                 line = line.strip()
                 tokens = line.split()
                 if len(tokens) == embedSize + 1:
-                    word, embed = tokens[0], np.asarray(tokens[1:], dtype=np.float)
+                    word, embed = tokens[0], np.asarray(tokens[1:], dtype=float)
                     wordVocab[word] = embed
 
         pure_template_tokens = {}

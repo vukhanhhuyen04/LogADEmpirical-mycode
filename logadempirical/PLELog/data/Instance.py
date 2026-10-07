@@ -142,7 +142,7 @@ class HDbscan_Instance():
 
 def parseHDbscanInstance(context):
     events = context[0].split()
-    repr = np.asarray(context[1].split(), dtype=np.float)
+    repr = np.asarray(context[1].split(), dtype=float)
     id, cluster, outlier, tag, type = context[2].split(',')
     return HDbscan_Instance(events, tag, repr, id, cluster, outlier, type)
 

@@ -154,7 +154,8 @@ def evaluate_online(data, config, vocab, logger, vec={}, outputFile=None, thresh
     from logadempirical.PLELog.data.Sample import load_features
     model = AttGRUModel(vocab, config, vec)
     # if config.use_cuda:
-    model = model.cuda()
+    if torch.cuda.is_available():
+        model = model.cuda()
     classifier = AnomalyDetectionBCELoss(model, vocab)
     classifier.model.load_state_dict(torch.load(config.save_model_path))
     abnormal_insts = {}

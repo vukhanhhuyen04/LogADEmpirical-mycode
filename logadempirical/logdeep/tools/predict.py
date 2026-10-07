@@ -396,18 +396,19 @@ class Predicter():
         TN = total_normal - FP
         FN = total_abnormal - TP
 
-        P = 100 * TP / (TP + FP)
-        R = 100 * TP / (TP + FN)
-        F1 = 2 * P * R / (P + R)
-        FPR = FP / (FP + TN)
-        FNR = FN / (TP + FN)
-        SP = TN / (TN + FP)
+        P = 100 * TP / (TP + FP) if (TP + FP) > 0 else 0.0
+        R = 100 * TP / (TP + FN) if (TP + FN) > 0 else 0.0
+        F1 = 2 * P * R / (P + R) if (P + R) > 0 else 0.0
+        FPR = FP / (FP + TN) if (FP + TN) > 0 else 0.0
+        FNR = FN / (TP + FN) if (TP + FN) > 0 else 0.0
+        SP = TN / (TN + FP) if (TN + FP) > 0 else 0.0
         with open(self.output_dir + self.model_name + "-leadtime.txt", mode="w") as f:
             [f.write(str(i) + "\n") for i in lead_time]
         print("Confusion matrix")
         print("TP: {}, TN: {}, FP: {}, FN: {}, FNR: {}, FPR: {}".format(TP, TN, FP, FN, FNR, FPR))
+        avg_lead_time = sum(lead_time) / len(lead_time) if len(lead_time) > 0 else 0.0
         print('Precision: {:.3f}%, Recall: {:.3f}%, F1-measure: {:.3f}%, Specificity: {:.3f}, '
-              'Lead time: {:.3f}'.format(P, R, F1, SP, sum(lead_time) / len(lead_time)))
+              'Lead time: {:.3f}'.format(P, R, F1, SP, avg_lead_time))
 
         elapsed_time = time.time() - start_time
         print('elapsed_time: {}'.format(elapsed_time))
