@@ -298,7 +298,7 @@ class LogParser:
         log_messages = []
         linecount = 0
         cnt = 0
-        with open(log_file, 'r', encoding='utf8') as fin:
+        with open(log_file, 'r', encoding='utf8', errors='ignore') as fin:
             for line in fin.readlines():
                 cnt += 1
                 try:
