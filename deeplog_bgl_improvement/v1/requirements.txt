@@ -1,0 +1,7 @@
+drain3>=0.9.11
+torch>=2.0
+scikit-learn>=1.2
+pandas
+numpy
+scipy
+matplotlib

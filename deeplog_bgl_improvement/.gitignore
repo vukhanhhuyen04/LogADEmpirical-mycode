@@ -1,0 +1,7 @@
+# Sinh ra khi chạy thí nghiệm (nặng, không đưa lên git)
+out/
+runs/
+.venv/
+__pycache__/
+*.pt
+*.pkl
