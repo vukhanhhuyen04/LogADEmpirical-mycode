@@ -46,3 +46,4 @@ logs/
 *.bak
 nohup.out
 .ipynb_checkpoints/
+run_logs.tar.gz
