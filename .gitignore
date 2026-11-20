@@ -36,3 +36,13 @@ experimental_results/
 results_week/
 run_logs/
 logs/
+
+# Model, data and archive files (large, regenerable)
+*.pkl
+*.pth
+*.pt
+*.npy
+*.zip
+*.bak
+nohup.out
+.ipynb_checkpoints/
