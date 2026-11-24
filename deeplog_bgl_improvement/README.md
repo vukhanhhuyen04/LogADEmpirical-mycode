@@ -9,5 +9,5 @@ Bộ mã độc lập (không phụ thuộc phần còn lại của LogADEmpiric
 - `v4b/`: v4 + `run_v4b.sh`; cập nhật `07_summary.py`, `12_feedback.py`.
 - `notebooks/`: notebook Kaggle `deeplog-bgl.ipynb`, `-v2`, `-v3`, `-v4` (kèm output của các lần chạy).
 
-Cách chạy: xem `v4b/LENH_CHAY.md` (v4b là bản mới nhất). Ví dụ: `cd deeplog_bgl_improvement/v3 && bash run_all.sh /duong/dan/BGL.log 42`.
+Cách chạy: xem `v4b/LENH_CHAY.md` (v4b là bản mới nhất). Ví dụ: `cd deeplog_bgl_improvement/v4b && bash run_all.sh /duong/dan/BGL.log 42`.
 Kết quả sinh ra trong `out/` và `runs/` (đã được .gitignore).
